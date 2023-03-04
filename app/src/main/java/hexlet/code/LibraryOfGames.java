@@ -4,7 +4,7 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-public class gameTwo {
+public class LibraryOfGames {
     static void gameTwo(String userName) {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         Scanner scangameTwo = new Scanner(System.in);

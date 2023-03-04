@@ -1,6 +1,6 @@
 package hexlet.code;
 
-import java.util.Scanner;
+
 
 public class App {
     public static void main(String[] args) {
@@ -15,11 +15,12 @@ public class App {
                     System.out.println();
                     continue;
                 case(2):
-                    gameTwo.gameTwo(userName);
+                    LibraryOfGames.gameTwo(userName);
                     return;
-                case(0):
+                default:
                     return;
             }
+
 
 
         }

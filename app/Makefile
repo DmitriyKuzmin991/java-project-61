@@ -4,3 +4,7 @@ run-dist:
 
 style:
 	./gradlew checkstyleMain
+run:
+	./gradlew run
+build:
+	./gradlew clean build

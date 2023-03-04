@@ -1,28 +1,51 @@
 package hexlet.code;
 
+import java.util.Scanner;
+
 public class App {
     public static void main(String[] args) {
-        Cli.greetings();
+        String userName = "Player";
+        while (true) {
+
+            int resultChoiceGame = Cli.choiceGames();
+            System.out.println();
+            switch (resultChoiceGame) {
+                case (1):
+                    userName = Cli.greetings();
+                    System.out.println();
+                    continue;
+                case(2):
+                    gameTwo.gameTwo(userName);
+                    return;
+                case(0):
+                    return;
+            }
+
+
+        }
+
+
+
+
+
+        //scan.close();
+//        if (resultChoiceGame == 0) {
+//            return;
+//        } else if (resultChoiceGame == 1) {
+//
+//        } else {
+//            System.out.println("Try agan");
+//        }
+
+//
+//         switch (resultChoiceGame) {
+//             case (1):
+//                 //start game
+//             case ()
+
+
+
+
+
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-    /*Импортируйте пакет java.util.Scanner. Поприветствуйте пользователя в игре. Спросите у пользователя его имя и поприветствуйте его по имени:
-
-        make run-dist
-        Welcome to the Brain Games!
-        May I have your name? John
-        Hello, John!
-        После чего программа завершается.
-
-        Для этого в пакете hexlet.code создайте класс Cli. Опишите эту логику в статическом методе класса, а в классе hexlet.code.App сделайте вызов данного метода.*/

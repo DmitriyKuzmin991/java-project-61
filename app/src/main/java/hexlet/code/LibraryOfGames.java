@@ -32,10 +32,10 @@ public class LibraryOfGames {
     static void gameThreeCalc() {
         String userName = Cli.greetingsAndGetName();
         int countRightAnswer = 0;
-        while(countRightAnswer < 3) {
-            int firstValue = (int)(Math.random() * 100);
-            int secondValue = (int)(Math.random() * 20);
-            int mathSignRand = (int)(Math.random() * 3 + 1);
+        while (countRightAnswer < 3) {
+            int firstValue = (int) (Math.random() * 100);
+            int secondValue = (int) (Math.random() * 20);
+            int mathSignRand = (int) (Math.random() * 3 + 1);
             int result = 0;
             System.out.println("What is the result of the expression?");
             System.out.print("Question: ");

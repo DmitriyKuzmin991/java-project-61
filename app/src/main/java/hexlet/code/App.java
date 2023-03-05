@@ -1,5 +1,5 @@
 package hexlet.code;
-
+import hexlet.code.LibraryOfGames.*;
 
 
 public class App {
@@ -10,13 +10,15 @@ public class App {
         switch (resultChoiceGame) {
             case (1):
                 String userName = Cli.greetingsAndGetName();
-                System.out.println();
                 return;
             case(2):
-                LibraryOfGames.gameTwoIsNumberEven();
+                GameTwoEven.gameTwoIsNumberEven();
                 return;
             case(3):
-                LibraryOfGames.gameThreeCalc();
+                GameThreeCalc.gameThreeCalc();
+                return;
+            case(4):
+                GameFourGCD.gameFourGCD();
                 return;
             default:
                 return;

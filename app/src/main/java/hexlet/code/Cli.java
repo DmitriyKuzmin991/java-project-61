@@ -5,13 +5,14 @@ public class Cli {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
+        System.out.println("3 - Calc");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         Scanner scan = new Scanner(System.in);
         int choice = scan.nextInt();
         return choice;
     }
-    public static String greetings() {
+    public static String greetingsAndGetName() {
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
         Scanner scn = new Scanner(System.in);
@@ -19,5 +20,5 @@ public class Cli {
         System.out.println("Hello, " + userName + '!');
         return userName;
     }
-
 }
+

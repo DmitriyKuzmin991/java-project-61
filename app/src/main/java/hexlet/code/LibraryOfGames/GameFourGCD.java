@@ -30,7 +30,7 @@ public class GameFourGCD {
                 continue;
             } else {
                 System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'\n",answer, gcd);
-                System.out.printf("Let's try again, %s!", userName);
+                System.out.printf("Let's try again, %s!\n", userName);
                 return;
             }
         }

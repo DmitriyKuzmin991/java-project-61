@@ -14,7 +14,7 @@ public class GameFourGCD {
             int firstValue = (int) (Math.random() * 100 + 3);
             int secondValue = (int) (Math.random() * 100 + 3);
             int correctAnswer = findGCD(firstValue, secondValue);
-            System.out.printf("Question: %s and %s", firstValue, secondValue);
+            System.out.print("Question: " + firstValue + " " + secondValue);
             System.out.print("\nYour answer: ");
             int userAnswer = scan.nextInt();
             if (userAnswer == correctAnswer) {

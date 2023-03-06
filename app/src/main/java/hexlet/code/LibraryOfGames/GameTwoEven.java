@@ -14,22 +14,19 @@ public class GameTwoEven {
             int number = (int) (Math.random() * 100);
             System.out.println("Question: " + number);
             System.out.print("Your answer: ");
-            String answer = scanGameTwo.next();
-            if (number % 2 == 0 && answer.equalsIgnoreCase("yes")) {
+            String userAnswer = scanGameTwo.next();
+            String correctAnswer = (number % 2 == 0) ? "yes" : "no";
+            if (number % 2 == 0 && userAnswer.equalsIgnoreCase(correctAnswer)) {
                 System.out.println("Correct!");
                 countRightAnswer++;
-                continue;
-            } else if (number % 2 != 0 && answer.equalsIgnoreCase("no")) {
+            } else if (number % 2 != 0 && userAnswer.equalsIgnoreCase(correctAnswer)) {
                 System.out.println("Correct!");
                 countRightAnswer++;
-                continue;
             } else {
-                System.out.println("'yes' is wrong answer ;(. Correct answer was 'no'.)");
-                System.out.println("Let's try again, " + userName + "!");
+                Cli.looseMessage(userAnswer, correctAnswer, userName);
                 return;
             }
-
         }
-        System.out.println("Congratulations, " + userName + "!");
+        Cli.winMassage(userName);
     }
 }

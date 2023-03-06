@@ -20,6 +20,9 @@ public class App {
             case(4):
                 GameFourGCD.gameFourGCD();
                 return;
+            case(5):
+                GameFiveProgression.progression();
+                return;
             default:
                 return;
         }

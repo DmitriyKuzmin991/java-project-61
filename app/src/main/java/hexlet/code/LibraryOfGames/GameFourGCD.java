@@ -13,15 +13,8 @@ public class GameFourGCD {
         while (countRightAnswer < 3) {
             int firstValue = (int) (Math.random() * 100);
             int secondValue = (int) (Math.random() * 100);
-            int maxValue = Math.max(firstValue, secondValue);
-            int minValue = Math.min(firstValue, secondValue);
-            while (minValue != 0){
-                int temp = maxValue % minValue;
-                maxValue = minValue;
-                minValue = temp;
-            }
-            int gcd = maxValue;
-            System.out.printf("Question: %s and %s", firstValue ,secondValue);
+            int gcd = findGCD(firstValue, secondValue);
+            System.out.printf("Question: %s and %s", firstValue, secondValue);
             System.out.print("\nYour answer: ");
             int answer = scan.nextInt();
             if (answer == gcd) {
@@ -29,11 +22,20 @@ public class GameFourGCD {
                 countRightAnswer++;
                 continue;
             } else {
-                System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'\n",answer, gcd);
-                System.out.printf("Let's try again, %s!\n", userName);
+                Cli.looseMessage(answer, gcd, userName);
                 return;
             }
         }
-        System.out.printf("Congratulations, %s!\n", userName);
+        Cli.winMassage(userName);
+    }
+    static int findGCD(int firstValue, int secondValue) {
+        int maxValue = Math.max(firstValue, secondValue);
+        int minValue = Math.min(firstValue, secondValue);
+        while (minValue != 0) {
+            int temp = maxValue % minValue;
+            maxValue = minValue;
+            minValue = temp;
+        }
+        return maxValue;
     }
 }

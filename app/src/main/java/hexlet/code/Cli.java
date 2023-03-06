@@ -8,10 +8,10 @@ public class Cli {
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
         System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         Scanner scan = new Scanner(System.in);
-        //int choice = ;
         return scan.nextInt();
     }
     public static String greetingsAndGetName() {
@@ -26,6 +26,10 @@ public class Cli {
         System.out.printf("Congratulations, %s!\n", userName);
     }
     public static void looseMessage(int answer, int correctAnswer, String userName) {
+        System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'\n", answer, correctAnswer);
+        System.out.printf("Let's try again, %s!\n", userName);
+    }
+    public static void looseMessage(String answer, String correctAnswer, String userName) {
         System.out.printf("'%s' is wrong answer ;(. Correct answer was '%s'\n", answer, correctAnswer);
         System.out.printf("Let's try again, %s!\n", userName);
     }

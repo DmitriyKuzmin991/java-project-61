@@ -10,21 +10,24 @@ public class App {
         switch (resultChoiceGame) {
             case (1):
                 String userName = Cli.greetingsAndGetName();
-                return;
+                break;
             case(2):
                 GameTwoEven.gameTwoIsNumberEven();
-                return;
+                break;
             case(3):
                 GameThreeCalc.gameThreeCalc();
-                return;
+                break;
             case(4):
                 GameFourGCD.gameFourGCD();
-                return;
+                break;
             case(5):
                 GameFiveProgression.progression();
-                return;
+                break;
+            case(6):
+                GameSixPrime.isPrimeGame();
+                break;
             default:
-                return;
+                break;
         }
 
     }

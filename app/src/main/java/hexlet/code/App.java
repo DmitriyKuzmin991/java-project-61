@@ -11,26 +11,14 @@ public class App {
         int resultChoiceGame = Cli.choiceGames();
         System.out.println();
         switch (resultChoiceGame) {
-            case (1):
-                Cli.greetings();
-                break;
-            case(2):
-                GameTwoEven.gameTwoIsNumberEven();
-                break;
-            case(3):
-                GameThreeCalc.gameThreeCalc();
-                break;
-            case(4):
-                GameFourGCD.gameFourGCD();
-                break;
-            case(5):
-                GameFiveProgression.progression();
-                break;
-            case(6):
-                GameSixPrime.isPrimeGame();
-                break;
-            default:
-                break;
+            case (1) -> Cli.greetings();
+            case (2) -> GameTwoEven.gameTwoIsNumberEven();
+            case (3) -> GameThreeCalc.gameThreeCalc();
+            case (4) -> GameFourGCD.gameFourGCD();
+            case (5) -> GameFiveProgression.progression();
+            case (6) -> GameSixPrime.isPrimeGame();
+            default -> {
+            }
         }
 
     }

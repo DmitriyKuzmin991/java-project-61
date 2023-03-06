@@ -10,3 +10,6 @@
 
 # Game five Progression
 [![asciicast](https://asciinema.org/a/NcLRJSjaiempLTzw8idSx20Wj.svg)](https://asciinema.org/a/NcLRJSjaiempLTzw8idSx20Wj)
+
+# Game six isPrime
+[![asciicast](https://asciinema.org/a/bojx6UqEtKtzZkKk5pnGemi2O.svg)](https://asciinema.org/a/bojx6UqEtKtzZkKk5pnGemi2O)

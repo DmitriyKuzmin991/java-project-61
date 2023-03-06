@@ -11,18 +11,17 @@ public class GameFourGCD {
         Scanner scan = new Scanner(System.in);
         int countRightAnswer = 0;
         while (countRightAnswer < 3) {
-            int firstValue = (int) (Math.random() * 100);
-            int secondValue = (int) (Math.random() * 100);
-            int gcd = findGCD(firstValue, secondValue);
+            int firstValue = (int) (Math.random() * 100 + 3);
+            int secondValue = (int) (Math.random() * 100 + 3);
+            int correctAnswer = findGCD(firstValue, secondValue);
             System.out.printf("Question: %s and %s", firstValue, secondValue);
             System.out.print("\nYour answer: ");
-            int answer = scan.nextInt();
-            if (answer == gcd) {
+            int userAnswer = scan.nextInt();
+            if (userAnswer == correctAnswer) {
                 System.out.println("Correct!");
                 countRightAnswer++;
-                continue;
             } else {
-                Cli.looseMessage(answer, gcd, userName);
+                Cli.looseMessage(userAnswer, correctAnswer, userName);
                 return;
             }
         }

@@ -11,19 +11,19 @@ public class GameFiveProgression {
         Scanner scan = new Scanner(System.in);
         int countRightAnswer = 0;
         while (countRightAnswer < 3) {
-            int start = (int) (Math.random() * 4 + 3);
+            int startNumber = (int) (Math.random() * 4 + 3);
             int stepProgression = (int) (Math.random() * 4 + 3);
             int hiddenPosition = (int) (Math.random() * 10);
-            int hiddenValue = start + (stepProgression * hiddenPosition);
+            int hiddenValue = startNumber + (stepProgression * hiddenPosition);
             System.out.print("Question: ");
-            printProgression(start, stepProgression, hiddenPosition);
+            printProgression(startNumber, stepProgression, hiddenPosition);
             System.out.print("\nYour answer: ");
-            int answer = scan.nextInt();
-            if (answer == hiddenValue) {
+            int userAnswer = scan.nextInt();
+            if (userAnswer == hiddenValue) {
                 System.out.println("Correct!");
                 countRightAnswer++;
             } else {
-                Cli.looseMessage(answer, hiddenValue, userName);
+                Cli.looseMessage(userAnswer, hiddenValue, userName);
                 return;
             }
         }

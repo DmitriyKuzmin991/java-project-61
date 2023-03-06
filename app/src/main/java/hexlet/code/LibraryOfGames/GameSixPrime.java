@@ -15,17 +15,17 @@ public class GameSixPrime {
             int randomNumber = new Random().nextInt(6, 137);
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
-            String answer = scan.next();
-            boolean checkResult = isPrime(randomNumber);
-            String rightAnswer = (checkResult) ? "yes" : "no";
-            if (answer.equalsIgnoreCase("yes") && checkResult) {
+            String userAnswer = scan.next();
+            boolean checkPrime = isPrime(randomNumber);
+            String rightAnswer = (checkPrime) ? "yes" : "no";
+            if (userAnswer.equalsIgnoreCase("yes") && checkPrime) {
                 System.out.println("Correct!");
                 countRightAnswer++;
-            } else if (answer.equalsIgnoreCase("no") && !checkResult) {
+            } else if (userAnswer.equalsIgnoreCase("no") && !checkPrime) {
                 System.out.println("Correct!");
                 countRightAnswer++;
             } else {
-                Cli.looseMessage(answer, rightAnswer, username);
+                Cli.looseMessage(userAnswer, rightAnswer, username);
                 return;
             }
         }

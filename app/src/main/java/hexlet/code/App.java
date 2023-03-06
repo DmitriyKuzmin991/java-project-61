@@ -8,7 +8,7 @@ public class App {
         System.out.println();
         switch (resultChoiceGame) {
             case (1):
-                String userName = Cli.greetingsAndGetName();
+                Cli.greetings();
                 break;
             case(2):
                 GameTwoEven.gameTwoIsNumberEven();

@@ -15,7 +15,7 @@ public class GameFiveProgression {
             int stepProgression = (int) (Math.random() * 4 + 3);
             int hiddenPosition = (int) (Math.random() * 10);
             int hiddenValue = startNumber + (stepProgression * hiddenPosition);
-            System.out.print("Question: ");
+            System.out.print("Question:");
             printProgression(startNumber, stepProgression, hiddenPosition);
             System.out.print("\nYour answer: ");
             int userAnswer = scan.nextInt();
@@ -32,9 +32,9 @@ public class GameFiveProgression {
     static void printProgression(int start, int stepProgression, int hiddenPosition) {
         for (int i = 0, j = start; i < 10; i++) {
             if (i == hiddenPosition) {
-                System.out.print(" .. ");
+                System.out.print(" ..");
             } else {
-                System.out.printf(" %s ", j);
+                System.out.printf(" %s", j);
             }
             j += stepProgression;
         }

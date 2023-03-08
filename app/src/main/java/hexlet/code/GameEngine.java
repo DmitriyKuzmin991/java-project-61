@@ -27,5 +27,8 @@ public class GameEngine {
     public static int getRandomValue(int initialValue, int finalValue) {
         return new Random().nextInt(initialValue, finalValue);
     }
+    public static int gameFiveProgressionLength() {
+        return 10;
+    }
 
 }

@@ -1,6 +1,7 @@
 package hexlet.code.LibraryOfGames;
 
 import hexlet.code.Cli;
+import hexlet.code.GameEngine;
 
 import java.util.Scanner;
 
@@ -10,8 +11,9 @@ public class GameTwoEven {
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
         Scanner scanGameTwo = new Scanner(System.in);
         int countRightAnswer = 0;
-        while (countRightAnswer < 3) {
-            int number = (int) (Math.random() * 100);
+        int resultForVictory = GameEngine.countOfRound();
+        while (countRightAnswer < resultForVictory) {
+            int number = GameEngine.getRandomValue(1, 100);
             System.out.println("Question: " + number);
             System.out.print("Your answer: ");
             String userAnswer = scanGameTwo.next();

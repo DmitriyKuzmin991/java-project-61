@@ -1,6 +1,7 @@
 package hexlet.code.LibraryOfGames;
 
 import hexlet.code.Cli;
+import hexlet.code.GameEngine;
 
 import java.util.Scanner;
 
@@ -10,13 +11,15 @@ public class GameFiveProgression {
         System.out.println("What number is missing in the progression?");
         Scanner scan = new Scanner(System.in);
         int countRightAnswer = 0;
-        while (countRightAnswer < 3) {
-            int startNumber = (int) (Math.random() * 4 + 3);
-            int stepProgression = (int) (Math.random() * 4 + 3);
-            int hiddenPosition = (int) (Math.random() * 10);
+        int resultForVictory = GameEngine.countOfRound();
+        while (countRightAnswer < resultForVictory) {
+            int startNumber = GameEngine.getRandomValue(6, 14);
+            int stepProgression = GameEngine.getRandomValue(3, 8);
+            int hiddenPosition = GameEngine.getRandomValue(1, 11);
             int hiddenValue = startNumber + (stepProgression * hiddenPosition);
+            int lengthProgression = 10;
             System.out.print("Question: ");
-            printProgression(startNumber, stepProgression, hiddenPosition);
+            printProgression(startNumber, stepProgression, hiddenPosition, lengthProgression);
             System.out.print("\nYour answer: ");
             int userAnswer = scan.nextInt();
             if (userAnswer == hiddenValue) {
@@ -29,12 +32,12 @@ public class GameFiveProgression {
         }
         Cli.winMassage(userName);
     }
-    static void printProgression(int start, int stepProgression, int hiddenPosition) {
-        for (int i = 0, j = start; i < 10; i++) {
+    static void printProgression(int start, int stepProgression, int hiddenPosition, int length) {
+        for (int i = 0, j = start; i <= length; i++) {
             if (i == hiddenPosition) {
-                System.out.print(" .. ");
+                System.out.print(" ..");
             } else {
-                System.out.printf(" %s ", j);
+                System.out.printf(" %s", j);
             }
             j += stepProgression;
         }

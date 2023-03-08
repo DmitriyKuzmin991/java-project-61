@@ -1,8 +1,8 @@
 package hexlet.code.LibraryOfGames;
 
 import hexlet.code.Cli;
+import hexlet.code.GameEngine;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class GameSixPrime {
@@ -11,8 +11,9 @@ public class GameSixPrime {
         System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         Scanner scan = new Scanner(System.in);
         int countRightAnswer = 0;
-        while (countRightAnswer < 3) {
-            int randomNumber = new Random().nextInt(6, 137);
+        int resultForVictory = GameEngine.countOfRound();
+        while (countRightAnswer < resultForVictory) {
+            int randomNumber = GameEngine.getRandomValue(6, 137);
             System.out.println("Question: " + randomNumber);
             System.out.print("Your answer: ");
             String userAnswer = scan.next();

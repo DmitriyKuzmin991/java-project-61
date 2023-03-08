@@ -1,6 +1,7 @@
 package hexlet.code.LibraryOfGames;
 
 import hexlet.code.Cli;
+import hexlet.code.GameEngine;
 
 import java.util.Scanner;
 
@@ -8,10 +9,11 @@ public class GameThreeCalc {
     public static void gameThreeCalc() {
         String userName = Cli.greetingsAndGetName();
         int countRightAnswer = 0;
-        while (countRightAnswer < 3) {
-            int firstValue = (int) (Math.random() * 100 + 3);
-            int secondValue = (int) (Math.random() * 20 + 1);
-            int mathSignRandom = (int) (Math.random() * 3 + 1);
+        int resultForVictory = GameEngine.countOfRound();
+        while (countRightAnswer < resultForVictory) {
+            int firstValue = GameEngine.getRandomValue(5, 113);
+            int secondValue = GameEngine.getRandomValue(2, 20);
+            int mathSignRandom = GameEngine.getRandomValue(1, 4);
             int correctAnswer;
             System.out.println("What is the result of the expression?");
             System.out.print("Question: ");

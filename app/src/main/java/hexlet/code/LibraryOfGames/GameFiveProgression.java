@@ -18,7 +18,7 @@ public class GameFiveProgression {
             int hiddenPosition = GameEngine.getRandomValue(1, 11);
             int hiddenValue = startNumber + (stepProgression * hiddenPosition);
             int lengthProgression = 10;
-            System.out.print("Question: ");
+            System.out.print("Question:");
             printProgression(startNumber, stepProgression, hiddenPosition, lengthProgression);
             System.out.print("\nYour answer: ");
             int userAnswer = scan.nextInt();

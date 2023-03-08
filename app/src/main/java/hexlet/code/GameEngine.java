@@ -9,15 +9,15 @@ import hexlet.code.LibraryOfGames.GameSixPrime;
 import java.util.Random;
 
 public class GameEngine {
-    public static void gameStarter(int numberGame) {
+    public static void gameStarter(String numberGame) {
         switch (numberGame) {
-            case (1) -> Cli.greetings();
-            case (2) -> GameTwoEven.gameTwoIsNumberEven();
-            case (3) -> GameThreeCalc.gameThreeCalc();
-            case (4) -> GameFourGCD.gameFourGCD();
-            case (5) -> GameFiveProgression.progression();
-            case (6) -> GameSixPrime.isPrimeGame();
-            case (0) -> System.out.println("Exit");
+            case ("1") -> Cli.greetings();
+            case ("2") -> GameTwoEven.gameTwoIsNumberEven();
+            case ("3") -> GameThreeCalc.gameThreeCalc();
+            case ("4") -> GameFourGCD.gameFourGCD();
+            case ("5") -> GameFiveProgression.progression();
+            case ("6") -> GameSixPrime.isPrimeGame();
+            case ("0") -> System.out.println("Exit");
             default -> System.out.println("Selection error, please try again.");
         }
     }

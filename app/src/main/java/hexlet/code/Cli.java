@@ -1,7 +1,7 @@
 package hexlet.code;
 import java.util.Scanner;
 public class Cli {
-    public static int choiceGames() {
+    public static String choiceGames() {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
@@ -12,7 +12,7 @@ public class Cli {
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         Scanner scan = new Scanner(System.in);
-        return scan.nextInt();
+        return scan.next();
     }
     public static String greetingsAndGetName() {
         System.out.println("Welcome to the Brain Games!");

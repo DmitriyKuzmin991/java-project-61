@@ -5,9 +5,10 @@ import hexlet.code.Cli;
 import java.util.Scanner;
 
 public class GameTwoEven {
+    private static final int RANGE_MAX_VALUE = 100;
     public static boolean gameTwoIsNumberEven(String userName) {
         Scanner scanGameTwo = new Scanner(System.in);
-        int number = (int) (Math.random() * 100);
+        int number = (int) (Math.random() * RANGE_MAX_VALUE);
         System.out.println("Question: " + number);
         System.out.print("Your answer: ");
         String userAnswer = scanGameTwo.next();

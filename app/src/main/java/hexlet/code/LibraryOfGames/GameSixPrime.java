@@ -1,37 +1,30 @@
 package hexlet.code.LibraryOfGames;
 
 import hexlet.code.Cli;
-import hexlet.code.GameEngine;
 
 import java.util.Scanner;
 
 public class GameSixPrime {
-    public static void isPrimeGame() {
-        String username = Cli.greetingsAndGetName();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+    private static final int RANGE_RANDOM_VALUE = 137;
+    public static boolean isPrimeGame(String userName) {
+        int randomNumber = (int) (Math.random() * RANGE_RANDOM_VALUE);
+        System.out.println("Question: " + randomNumber);
+        System.out.print("Your answer: ");
         Scanner scan = new Scanner(System.in);
-        int countRightAnswer = 0;
-        int resultForVictory = GameEngine.countOfRound();
-        while (countRightAnswer < resultForVictory) {
-            int randomNumber = GameEngine.getRandomValue(6, 137);
-            System.out.println("Question: " + randomNumber);
-            System.out.print("Your answer: ");
-            String userAnswer = scan.next();
-            boolean checkPrime = isPrime(randomNumber);
-            String rightAnswer = (checkPrime) ? "yes" : "no";
-            if (userAnswer.equalsIgnoreCase("yes") && checkPrime) {
-                System.out.println("Correct!");
-                countRightAnswer++;
-            } else if (userAnswer.equalsIgnoreCase("no") && !checkPrime) {
-                System.out.println("Correct!");
-                countRightAnswer++;
-            } else {
-                Cli.looseMessage(userAnswer, rightAnswer, username);
-                return;
-            }
+        String userAnswer = scan.next();
+        boolean checkPrime = isPrime(randomNumber);
+        String rightAnswer = (checkPrime) ? "yes" : "no";
+        if (userAnswer.equalsIgnoreCase("yes") && checkPrime) {
+            return true;
+        } else if (userAnswer.equalsIgnoreCase("no") && !checkPrime) {
+            return true;
+        } else {
+            Cli.looseMessage(userAnswer, rightAnswer, userName);
+            return false;
         }
-        Cli.winMassage(username);
     }
+
+
 
     static boolean isPrime(int checkingNumber) {
         int maxDiv = checkingNumber / 2;
@@ -41,5 +34,8 @@ public class GameSixPrime {
             }
         }
         return true;
+    }
+    public static void gameSixRules() {
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 }

@@ -6,7 +6,7 @@ public class App {
     public static void main(String[] args) {
         String resultChoiceGame = Cli.choiceGames();
         System.out.println();
-        GameEngine.gameStarter(resultChoiceGame);
+        GameEngine.engineApp(resultChoiceGame);
 
     }
 }

@@ -1,39 +1,35 @@
 package hexlet.code.LibraryOfGames;
 
 import hexlet.code.Cli;
-import hexlet.code.GameEngine;
 
 import java.util.Scanner;
 
 public class GameFiveProgression {
-    public static void progression() {
-        String userName = Cli.greetingsAndGetName();
-        System.out.println("What number is missing in the progression?");
+    private static final int PROGRESSION_LENGTH = 10;
+    private static final int RANGE_START_NUMBER = 14;
+    private static final int RANGE_STEP = 8;
+    private static final int RANGE_HIDDEN_POSITION = 10;
+    public static boolean progression(String userName) {
+        int startNumber = (int) (Math.random() * RANGE_START_NUMBER);
+        int stepProgression = (int) (Math.random() * RANGE_STEP);
+        int hiddenPosition = (int) (Math.random() * RANGE_HIDDEN_POSITION);
+        int hiddenValue = startNumber + (stepProgression * hiddenPosition);
+        System.out.print("Question:");
+        printProgression(startNumber, stepProgression, hiddenPosition);
+        System.out.print("\nYour answer: ");
         Scanner scan = new Scanner(System.in);
-        int countRightAnswer = 0;
-        int resultForVictory = GameEngine.countOfRound();
-        while (countRightAnswer < resultForVictory) {
-            int startNumber = GameEngine.getRandomValue(6, 14);
-            int stepProgression = GameEngine.getRandomValue(3, 8);
-            int hiddenPosition = GameEngine.getRandomValue(1, 11);
-            int hiddenValue = startNumber + (stepProgression * hiddenPosition);
-            int lengthProgression = GameEngine.gameFiveProgressionLength();
-            System.out.print("Question:");
-            printProgression(startNumber, stepProgression, hiddenPosition, lengthProgression);
-            System.out.print("\nYour answer: ");
-            int userAnswer = scan.nextInt();
-            if (userAnswer == hiddenValue) {
-                System.out.println("Correct!");
-                countRightAnswer++;
-            } else {
-                Cli.looseMessage(userAnswer, hiddenValue, userName);
-                return;
-            }
+        int userAnswer = scan.nextInt();
+        if (userAnswer == hiddenValue) {
+            return true;
+        } else {
+            Cli.looseMessage(userAnswer, hiddenValue, userName);
+            return false;
         }
-        Cli.winMassage(userName);
     }
-    static void printProgression(int start, int stepProgression, int hiddenPosition, int length) {
-        for (int i = 0, j = start; i <= length; i++) {
+
+
+    static void printProgression(int start, int stepProgression, int hiddenPosition) {
+        for (int i = 0, j = start; i <= PROGRESSION_LENGTH; i++) {
             if (i == hiddenPosition) {
                 System.out.print(" ..");
             } else {
@@ -41,6 +37,9 @@ public class GameFiveProgression {
             }
             j += stepProgression;
         }
+    }
+    public static void gameFiveRules() {
+        System.out.println("What number is missing in the progression?");
     }
 
 }

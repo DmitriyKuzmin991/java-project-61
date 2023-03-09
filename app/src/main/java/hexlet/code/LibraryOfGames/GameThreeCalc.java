@@ -1,47 +1,48 @@
 package hexlet.code.LibraryOfGames;
 
 import hexlet.code.Cli;
-import hexlet.code.GameEngine;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class GameThreeCalc {
-    public static void gameThreeCalc() {
-        String userName = Cli.greetingsAndGetName();
-        int countRightAnswer = 0;
-        int resultForVictory = GameEngine.countOfRound();
-        while (countRightAnswer < resultForVictory) {
-            int firstValue = GameEngine.getRandomValue(5, 113);
-            int secondValue = GameEngine.getRandomValue(2, 20);
-            int mathSignRandom = GameEngine.getRandomValue(1, 4);
-            int correctAnswer;
-            System.out.println("What is the result of the expression?");
-            System.out.print("Question: ");
-            switch (mathSignRandom) {
-                case (1) -> {
-                    System.out.println(firstValue + " + " + secondValue);
-                    correctAnswer = firstValue + secondValue;
-                }
-                case (2) -> {
-                    System.out.println(firstValue + " - " + secondValue);
-                    correctAnswer = firstValue - secondValue;
-                }
-                default -> {
-                    System.out.println(firstValue + " * " + secondValue);
-                    correctAnswer = firstValue * secondValue;
-                }
+    private static final int MAX_RANDOM_VALUE = 100;
+    private static final int VARIANT_MATH_SIGN = 3;
+    public static boolean gameThreeCalc(String userName) {
+        int firstValue = (int) (Math.random() * MAX_RANDOM_VALUE);
+        int secondValue = (int) (Math.random() * MAX_RANDOM_VALUE);
+        int mathSignRandom = new Random().nextInt(VARIANT_MATH_SIGN);
+        int correctAnswer = 0;
+        System.out.print("Question: ");
+        switch (mathSignRandom) {
+            case (0) -> {
+                System.out.println(firstValue + " + " + secondValue);
+                correctAnswer = firstValue + secondValue;
             }
-            System.out.print("Your answer: ");
-            Scanner scan = new Scanner(System.in);
-            int userAnswer = scan.nextInt();
-            if (correctAnswer == userAnswer) {
-                System.out.println("Correct!");
-                countRightAnswer++;
-            } else {
-                Cli.looseMessage(userAnswer, correctAnswer, userName);
-                return;
+            case (1) -> {
+                System.out.println(firstValue + " - " + secondValue);
+                correctAnswer = firstValue - secondValue;
+            }
+            case (2) -> {
+                System.out.println(firstValue + " * " + secondValue);
+                correctAnswer = firstValue * secondValue;
+            }
+            default -> {
+                return false;
             }
         }
-        Cli.winMassage(userName);
+        System.out.print("Your answer: ");
+        Scanner scan = new Scanner(System.in);
+        int userAnswer = scan.nextInt();
+        if (correctAnswer == userAnswer) {
+            return true;
+        } else {
+            Cli.looseMessage(userAnswer, correctAnswer, userName);
+            return false;
+        }
+    }
+
+    public static void  gameThreeRules() {
+        System.out.println("What is the result of the expression?");
     }
 }

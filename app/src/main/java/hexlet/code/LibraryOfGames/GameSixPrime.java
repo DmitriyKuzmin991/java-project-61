@@ -25,6 +25,9 @@ public class GameSixPrime {
 
 
     static boolean isPrime(int checkingNumber) {
+        if (checkingNumber == 1) {
+            return true;
+        }
         int maxDiv = checkingNumber / 2;
         for (int i = 2; i <= maxDiv; i++) {
             if (checkingNumber % i == 0) {

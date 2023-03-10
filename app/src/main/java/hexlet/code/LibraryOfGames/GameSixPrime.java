@@ -6,9 +6,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GameSixPrime {
-    private static final int RANGE_RANDOM_VALUE = 137;
+    private static final int UPPER_LIMIT_VALUE = 137;
+    private static final int LOWER_LIMIT_VALUE = 3;
     public static boolean isPrimeGame(String userName) {
-        int randomNumber = new Random().nextInt(RANGE_RANDOM_VALUE);
+        int randomNumber = new Random().nextInt(LOWER_LIMIT_VALUE, UPPER_LIMIT_VALUE);
         System.out.println("Question: " + randomNumber);
         System.out.print("Your answer: ");
         Scanner scan = new Scanner(System.in);

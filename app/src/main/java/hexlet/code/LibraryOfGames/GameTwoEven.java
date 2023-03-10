@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class GameTwoEven {
     private static final int UPPER_LIMIT_NUMBER = 99;
     public static boolean gameTwoIsNumberEven(String userName) {
-        int number = new Random().nextInt(99);
+        int number = new Random().nextInt(UPPER_LIMIT_NUMBER);
         System.out.println("Question: " + number);
         System.out.print("Your answer: ");
         Scanner scanGameTwo = new Scanner(System.in);

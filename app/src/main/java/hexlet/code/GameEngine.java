@@ -5,46 +5,37 @@ import hexlet.code.LibraryOfGames.GameThreeCalc;
 import hexlet.code.LibraryOfGames.GameFourGCD;
 import hexlet.code.LibraryOfGames.GameFiveProgression;
 import hexlet.code.LibraryOfGames.GameSixPrime;
-
 public class GameEngine {
     public static final int COUNT_OF_ROUND = 3;
 
     public static void engineApp(String numberGame) {
         switch (numberGame) {
-            case ("1") -> {
-                Cli.greetings();
-                return;
-            }
+            case ("1") -> Cli.greetings();
             case ("2") -> gameBody("two");
             case ("3") -> gameBody("three");
             case ("4") -> gameBody("four");
             case ("5") -> gameBody("five");
             case ("6") -> gameBody("six");
-            case ("0") -> {
-                System.out.println("Exit");
-                return;
-            }
-            default -> {
-                System.out.println("Selection error, please try again.");
-                return;
-            }
+            case ("0") -> System.out.println("Exit");
+            default -> System.out.println("Selection error, please try again.");
         }
     }
+
     public static void gameBody(String numberGame) {
         String userName = Cli.greetingsAndGetName();
         int countRightAnswer = 0;
         rulesOfTheGame(numberGame);
         while (countRightAnswer < COUNT_OF_ROUND) {
             boolean result = gameStarter(numberGame, userName);
-            if (result) {
-                System.out.println("Correct!");
-                countRightAnswer++;
-            } else {
+            if (!result) {
                 return;
             }
+            System.out.println("Correct!");
+            countRightAnswer++;
         }
         Cli.winMassage(userName);
     }
+
     public static void rulesOfTheGame(String numberGame) {
         switch (numberGame) {
             case ("two") -> GameTwoEven.gameTwoRules();
@@ -53,10 +44,10 @@ public class GameEngine {
             case ("five") -> GameFiveProgression.gameFiveRules();
             case ("six") -> GameSixPrime.gameSixRules();
             default -> {
-                return;
             }
         }
     }
+
     public static boolean gameStarter(String numberGame, String user) {
         boolean result = false;
         switch (numberGame) {

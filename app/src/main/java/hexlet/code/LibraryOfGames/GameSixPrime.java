@@ -2,26 +2,24 @@ package hexlet.code.LibraryOfGames;
 
 import hexlet.code.Cli;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class GameSixPrime {
     private static final int RANGE_RANDOM_VALUE = 137;
     public static boolean isPrimeGame(String userName) {
-        int randomNumber = (int) (Math.random() * RANGE_RANDOM_VALUE);
+        int randomNumber = new Random().nextInt(RANGE_RANDOM_VALUE);
         System.out.println("Question: " + randomNumber);
         System.out.print("Your answer: ");
         Scanner scan = new Scanner(System.in);
-        String userAnswer = scan.next();
+        String userAnswer = scan.nextLine();
         boolean checkPrime = isPrime(randomNumber);
         String rightAnswer = (checkPrime) ? "yes" : "no";
-        if (userAnswer.equalsIgnoreCase("yes") && checkPrime) {
+        if (userAnswer.equalsIgnoreCase(rightAnswer)) {
             return true;
-        } else if (userAnswer.equalsIgnoreCase("no") && !checkPrime) {
-            return true;
-        } else {
-            Cli.looseMessage(userAnswer, rightAnswer, userName);
-            return false;
         }
+        Cli.looseMessage(userAnswer, rightAnswer, userName);
+        return false;
     }
 
 

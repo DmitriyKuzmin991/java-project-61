@@ -1,5 +1,11 @@
 package hexlet.code;
 
+import hexlet.code.LibraryOfGames.GameTwoEven;
+import hexlet.code.LibraryOfGames.GameThreeCalc;
+import hexlet.code.LibraryOfGames.GameFourGCD;
+import hexlet.code.LibraryOfGames.GameFiveProgression;
+import hexlet.code.LibraryOfGames.GameSixPrime;
+
 import java.util.Scanner;
 
 public class App {
@@ -17,7 +23,11 @@ public class App {
         String userChoice = scan.nextLine();
         switch (userChoice) {
             case ("1") -> greetings();
-            case ("2"), ("4"), ("3"), ("5"), ("6") -> GameEngine.engineApp(userChoice);
+            case ("2") -> GameTwoEven.gameTwoIsNumberEven();
+            case ("3") -> GameThreeCalc.gameThreeCalc();
+            case ("4") -> GameFourGCD.gameFourGCD();
+            case ("5") -> GameFiveProgression.progression();
+            case ("6") -> GameSixPrime.isPrimeGame();
             case ("0") -> System.out.println("Exit");
             default -> System.out.println("Error, please try again.");
         }

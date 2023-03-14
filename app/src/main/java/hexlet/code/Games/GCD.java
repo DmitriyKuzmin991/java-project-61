@@ -1,23 +1,21 @@
-package hexlet.code.LibraryOfGames;
+package hexlet.code.Games;
 
-import hexlet.code.GameEngine;
+import hexlet.code.Engine;
 
-public class GameFourGCD {
+public class GCD {
     private static final int LIMIT_MAX_VALUE = 100;
+    public static final int COUNT_OF_ROUND = 3;
 
-    public static void gameFourGCD() {
-        int gameRound = 0;
-        String[] question = new String[GameEngine.COUNT_OF_ROUND];
-        String[] rightAnswer = new String[GameEngine.COUNT_OF_ROUND];
+    public static void gcd() {
+        String[][] questAndAnswer = new String[COUNT_OF_ROUND][2];
         String rules = "Find the greatest common divisor of given numbers.";
-        while (gameRound < GameEngine.COUNT_OF_ROUND) {
+        for (String[] round : questAndAnswer) {
             int firstValue = (int) (Math.random() * LIMIT_MAX_VALUE);
             int secondValue = (int) (Math.random() * LIMIT_MAX_VALUE);
-            question[gameRound] = "Question: " + firstValue + " " + secondValue + "\nYour answer: ";
-            rightAnswer[gameRound] = findGCD(firstValue, secondValue);
-            gameRound++;
+            round[0] = "Question: " + firstValue + " " + secondValue + "\nYour answer: ";
+            round[1] = findGCD(firstValue, secondValue);
         }
-        GameEngine.engineApp(rules, question, rightAnswer);
+        Engine.runGame(rules, questAndAnswer);
     }
 
     static String findGCD(int firstValue, int secondValue) {

@@ -1,30 +1,30 @@
-package hexlet.code.LibraryOfGames;
+package hexlet.code.Games;
 
-import hexlet.code.GameEngine;
+import hexlet.code.Engine;
 
 import java.util.Random;
 
-public class GameFiveProgression {
+public class Progression {
     private static final int PROGRESSION_LENGTH = 10;
     private static final int RANGE_START_NUMBER = 14;
     private static final int RANGE_STEP = 8;
+    private static final int MIN_STEP = 3;
     private static final int RANGE_HIDDEN_POSITION = 9;
+    public static final int COUNT_OF_ROUND = 3;
     public static void progression() {
-        int gameRound = 0;
-        String[] question = new String[GameEngine.COUNT_OF_ROUND];
-        String[] rightAnswer = new String[GameEngine.COUNT_OF_ROUND];
+        String[][] questAndAnswer = new String[COUNT_OF_ROUND][2];
         String rules = "What number is missing in the progression?";
-        while (gameRound < GameEngine.COUNT_OF_ROUND) {
+        for (String[] round : questAndAnswer) {
             int startNumber = new Random().nextInt(RANGE_START_NUMBER);
-            int stepProgression = new Random().nextInt(RANGE_STEP);
+            int stepProgression = new Random().nextInt(MIN_STEP, RANGE_STEP);
             int hiddenPosition = new Random().nextInt(RANGE_HIDDEN_POSITION);
-            question[gameRound] = "Question:" + printProgression(startNumber, stepProgression, hiddenPosition)
-                                + "\nYour answer: ";
-            rightAnswer[gameRound] = Integer.toString(startNumber + (stepProgression * hiddenPosition));
-            gameRound++;
+            round[0] = "Question:" + printProgression(startNumber, stepProgression, hiddenPosition)
+                     + "\nYour answer: ";
+            round[1] = Integer.toString(startNumber + (stepProgression * hiddenPosition));
         }
-        GameEngine.engineApp(rules, question, rightAnswer);
+        Engine.runGame(rules, questAndAnswer);
     }
+
 
     static String printProgression(int start, int stepProgression, int hiddenPosition) {
         StringBuilder builder = new StringBuilder();

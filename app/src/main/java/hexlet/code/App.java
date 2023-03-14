@@ -1,10 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.LibraryOfGames.GameTwoEven;
-import hexlet.code.LibraryOfGames.GameThreeCalc;
-import hexlet.code.LibraryOfGames.GameFourGCD;
-import hexlet.code.LibraryOfGames.GameFiveProgression;
-import hexlet.code.LibraryOfGames.GameSixPrime;
+import hexlet.code.Games.IsEven;
+import hexlet.code.Games.Calc;
+import hexlet.code.Games.GCD;
+import hexlet.code.Games.Progression;
+import hexlet.code.Games.IsPrime;
 
 import java.util.Scanner;
 
@@ -22,21 +22,14 @@ public class App {
         Scanner scan = new Scanner(System.in);
         String userChoice = scan.nextLine();
         switch (userChoice) {
-            case ("1") -> greetings();
-            case ("2") -> GameTwoEven.gameTwoIsNumberEven();
-            case ("3") -> GameThreeCalc.gameThreeCalc();
-            case ("4") -> GameFourGCD.gameFourGCD();
-            case ("5") -> GameFiveProgression.progression();
-            case ("6") -> GameSixPrime.isPrimeGame();
+            case ("1") -> Cli.greetings();
+            case ("2") -> IsEven.isEven();
+            case ("3") -> Calc.calc();
+            case ("4") -> GCD.gcd();
+            case ("5") -> Progression.progression();
+            case ("6") -> IsPrime.isPrime();
             case ("0") -> System.out.println("Exit");
             default -> System.out.println("Error, please try again.");
         }
-    }
-    public static void greetings() {
-        System.out.println("Welcome to the Brain Games!");
-        System.out.print("May I have your name? ");
-        Scanner scn = new Scanner(System.in);
-        String userName = scn.next();
-        System.out.println("Hello, " + userName + '!');
     }
 }

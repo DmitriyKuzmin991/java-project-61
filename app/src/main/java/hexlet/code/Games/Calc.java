@@ -1,19 +1,18 @@
-package hexlet.code.LibraryOfGames;
-import hexlet.code.GameEngine;
+package hexlet.code.Games;
+import hexlet.code.Engine;
 
 import java.util.Random;
 
-public class GameThreeCalc {
+public class Calc {
     private static final int LIMIT_FIRST_VALUE = 123;
     private static final int LIMIT_SECOND_VALUE = 25;
     private static final int VARIANT_MATH_SIGN = 3;
+    public static final int COUNT_OF_ROUND = 3;
 
-    public static void gameThreeCalc() {
-        int gameRound = 0;
-        String[] question = new String[GameEngine.COUNT_OF_ROUND];
-        String[] rightAnswer = new String[GameEngine.COUNT_OF_ROUND];
+    public static void calc() {
+        String[][] questAndAnswer = new String[COUNT_OF_ROUND][2];
         String rules = "What is the result of the expression?";
-        while (gameRound < GameEngine.COUNT_OF_ROUND) {
+        for (String[] round : questAndAnswer) {
             int firstValue = new Random().nextInt(LIMIT_FIRST_VALUE);
             int secondValue = new Random().nextInt(LIMIT_SECOND_VALUE);
             int mathSign = new Random().nextInt(VARIANT_MATH_SIGN);
@@ -33,10 +32,9 @@ public class GameThreeCalc {
                     correctAnswer = firstValue * secondValue;
                 }
             }
-            question[gameRound] = "Question: " + firstValue + sign + secondValue + "\nYour answer: ";
-            rightAnswer[gameRound] = Integer.toString(correctAnswer);
-            gameRound++;
+            round[0] = "Question: " + firstValue + sign + secondValue + "\nYour answer: ";
+            round[1] = Integer.toString(correctAnswer);
         }
-        GameEngine.engineApp(rules, question, rightAnswer);
+        Engine.runGame(rules, questAndAnswer);
     }
 }

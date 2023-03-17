@@ -15,16 +15,10 @@ public class Progression {
         String[][] questAndAnswer = new String[COUNT_OF_ROUND][2];
         String rules = "What number is missing in the progression?";
         for (String[] round : questAndAnswer) {
-            int startNumber = new Random().nextInt(RANGE_START_NUMBER);
-            int stepProgression = new Random().nextInt(MIN_STEP, RANGE_STEP);
-            int hiddenPosition = new Random().nextInt(RANGE_HIDDEN_POSITION);
-            round[0] = "Question:" + printProgression(startNumber, stepProgression, hiddenPosition)
-                     + "\nYour answer: ";
-            round[1] = Integer.toString(startNumber + (stepProgression * hiddenPosition));
+            getATaskForTheRound(round);
         }
         Engine.runGame(rules, questAndAnswer);
     }
-
 
     static String printProgression(int start, int stepProgression, int hiddenPosition) {
         StringBuilder builder = new StringBuilder();
@@ -39,5 +33,12 @@ public class Progression {
             j += stepProgression;
         }
         return builder.toString();
+    }
+    static void getATaskForTheRound(String[] round) {
+        int startNumber = new Random().nextInt(RANGE_START_NUMBER);
+        int stepProgression = new Random().nextInt(MIN_STEP, RANGE_STEP);
+        int hiddenPosition = new Random().nextInt(RANGE_HIDDEN_POSITION);
+        round[0] = printProgression(startNumber, stepProgression, hiddenPosition);
+        round[1] = Integer.toString(startNumber + (stepProgression * hiddenPosition));
     }
 }

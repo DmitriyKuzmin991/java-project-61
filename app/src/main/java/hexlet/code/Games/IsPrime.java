@@ -13,13 +13,11 @@ public class IsPrime {
         String[][] questAndAnswer = new String[COUNT_OF_ROUND][2];
         String rules = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         for (String[] round : questAndAnswer) {
-            int randomNumber = new Random().nextInt(MAX_RANDOM_VALUE + MIN_RANDOM_VALUE);
-            round[0] = "Question: " + randomNumber + "\nYour answer: ";
-            round[1] = verificationIsPrime((randomNumber)) ? "yes" : "no";
+            getATaskForTheRound(round);
         }
         Engine.runGame(rules, questAndAnswer);
     }
-    static boolean verificationIsPrime(int checkingNumber) {
+    static boolean isNumberPrime(int checkingNumber) {
         int maxDiv = checkingNumber / 2;
         for (int i = 2; i <= maxDiv; i++) {
             if (checkingNumber % i == 0) {
@@ -28,4 +26,10 @@ public class IsPrime {
         }
         return true;
     }
+    static void getATaskForTheRound(String[] round) {
+        int randomNumber = new Random().nextInt(MAX_RANDOM_VALUE + MIN_RANDOM_VALUE);
+        round[0] = Integer.toString(randomNumber);
+        round[1] = (isNumberPrime(randomNumber)) ? "yes" : "no";
+    }
+
 }

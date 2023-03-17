@@ -11,13 +11,18 @@ public class IsEven {
         String[][] questAndAnswer = new String[COUNT_OF_ROUND][2];
         String rules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
         for (String[] round : questAndAnswer) {
-            int number = new Random().nextInt(UPPER_LIMIT_NUMBER);
-            round[0] = "Question: " + number + "\nYour answer: ";
-            round[1] = (verificationIsEven(number)) ? "yes" : "no";
+            getATaskForTheRound(round);
         }
         Engine.runGame(rules, questAndAnswer);
     }
-    static boolean verificationIsEven(int number) {
+    static boolean isNumberEven(int number) {
         return number % 2 == 0;
     }
+
+    static void getATaskForTheRound(String[] round) {
+        int number = new Random().nextInt(UPPER_LIMIT_NUMBER);
+        round[0] = Integer.toString(number);
+        round[1] = (isNumberEven(number)) ? "yes" : "no";
+    }
+
 }

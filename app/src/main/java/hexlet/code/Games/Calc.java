@@ -13,28 +13,31 @@ public class Calc {
         String[][] questAndAnswer = new String[COUNT_OF_ROUND][2];
         String rules = "What is the result of the expression?";
         for (String[] round : questAndAnswer) {
-            int firstValue = new Random().nextInt(LIMIT_FIRST_VALUE);
-            int secondValue = new Random().nextInt(LIMIT_SECOND_VALUE);
-            int mathSign = new Random().nextInt(VARIANT_MATH_SIGN);
-            int correctAnswer;
-            String sign;
-            switch (mathSign) {
-                case (0) -> {
-                    sign = " + ";
-                    correctAnswer = firstValue + secondValue;
-                }
-                case (1) -> {
-                    sign = " - ";
-                    correctAnswer = firstValue - secondValue;
-                }
-                default -> {
-                    sign = " * ";
-                    correctAnswer = firstValue * secondValue;
-                }
-            }
-            round[0] = "Question: " + firstValue + sign + secondValue + "\nYour answer: ";
-            round[1] = Integer.toString(correctAnswer);
+            getATaskForTheRound(round);
         }
         Engine.runGame(rules, questAndAnswer);
+    }
+    static void getATaskForTheRound(String[] round) {
+        int firstValue = new Random().nextInt(LIMIT_FIRST_VALUE);
+        int secondValue = new Random().nextInt(LIMIT_SECOND_VALUE);
+        int mathSign = new Random().nextInt(VARIANT_MATH_SIGN);
+        int correctAnswer;
+        String sign;
+        switch (mathSign) {
+            case (0) -> {
+                sign = " + ";
+                correctAnswer = firstValue + secondValue;
+            }
+            case (1) -> {
+                sign = " - ";
+                correctAnswer = firstValue - secondValue;
+            }
+            default -> {
+                sign = " * ";
+                correctAnswer = firstValue * secondValue;
+            }
+        }
+        round[0] = firstValue + sign + secondValue;
+        round[1] = Integer.toString(correctAnswer);
     }
 }

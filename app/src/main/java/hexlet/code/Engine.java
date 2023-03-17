@@ -11,7 +11,8 @@ public class Engine {
         System.out.println("Hello, " + userName + '!');
         System.out.println(gameRules);
         for (String[] round : questionAndAnswer) {
-            System.out.print(round[0]);
+            System.out.println("Question: " + round[0]);
+            System.out.print("Your answer: ");
             String userAnswer = scn.nextLine();
             if (!userAnswer.equalsIgnoreCase(round[1])) {
                 showFailMassage(userAnswer, round[1], userName);

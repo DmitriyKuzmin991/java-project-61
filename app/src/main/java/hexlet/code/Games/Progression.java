@@ -24,11 +24,11 @@ public class Progression {
         StringBuilder builder = new StringBuilder();
         for (int i = 0, j = start; i <= PROGRESSION_LENGTH; i++) {
             if (i == hiddenPosition) {
-                builder.append(" ..");
+                builder.append(".. ");
 
             } else {
-                builder.append(" ");
                 builder.append(j);
+                builder.append(" ");
             }
             j += stepProgression;
         }

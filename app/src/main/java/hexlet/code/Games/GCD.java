@@ -2,8 +2,6 @@ package hexlet.code.Games;
 
 import hexlet.code.Engine;
 
-import java.util.Random;
-
 public class GCD {
     private static final int LIMIT_MAX_VALUE = 100;
     public static final int COUNT_OF_ROUND = 3;

@@ -1,6 +1,6 @@
 .DEFAULT_GOAL := build-run
 
-run
+run:
 	./build/install/app/bin/app
 
 build:
